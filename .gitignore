@@ -1,21 +1,16 @@
-# Python
+﻿# Python
 .venv/
 __pycache__/
 *.pyc
-
-# OS
+*.pyo
+*.pyd
 .DS_Store
 Thumbs.db
-
-# Data & artifacts (kept out of git)
-data/
-embeddings/
-models/
-logs/
-
-# Notebooks
 *.ipynb_checkpoints/
 
-# IDE
-.vscode/
-.idea/
+# Local artifacts
+logs/
+data/events/
+
+# (Recommended) don't push raw images; API can proxy originals
+data/images/
