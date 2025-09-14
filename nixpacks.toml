@@ -1,0 +1,12 @@
+﻿[phases.setup]
+aptPkgs = ["libgl1","libglib2.0-0","libjpeg62-turbo","libpng16-16","libgomp1","build-essential","ca-certificates"]
+
+[phases.install]
+cmds = [
+  "python -m pip install -U pip",
+  "pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio",
+  "pip install -r requirements.txt"
+]
+
+[start]
+cmd = "uvicorn cabi_outfits.api:app --host 0.0.0.0 --port $PORT --app-dir src"
