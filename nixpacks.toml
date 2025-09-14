@@ -1,5 +1,5 @@
-﻿[phases.setup]
-aptPkgs = ["libgl1","libglib2.0-0","libjpeg62-turbo","libpng16-16","libgomp1","build-essential","ca-certificates"]
+[phases.setup]
+aptPkgs = ["libgl1","libglib2.0-0","libjpeg-turbo8","libpng16-16","libgomp1","build-essential","ca-certificates"]
 
 [phases.install]
 cmds = [
