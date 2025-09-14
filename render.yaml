@@ -3,8 +3,14 @@
     name: cabi-outfits
     env: python
     plan: free
+    pythonVersion: 3.11.9
+    envVars:
+      - key: PIP_ONLY_BINARY
+        value: ":all:"
     buildCommand: |
       pip install --upgrade pip wheel setuptools
-      pip install -r requirements.txt
+      # preinstall critical wheels to avoid any build-from-source
+      pip install --only-binary=:all: numpy==1.26.4 pandas==2.2.2 pyarrow==16.1.0 Pillow==10.4.0
+      pip install --no-cache-dir -r requirements.txt
     startCommand: uvicorn cabi_outfits.api:app --host 0.0.0.0 --port $PORT --app-dir src
     autoDeploy: true
