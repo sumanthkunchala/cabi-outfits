@@ -1,4 +1,4 @@
-﻿faiss-cpu==1.8.0.post1
+faiss-cpu==1.7.4
 open-clip-torch==2.24.0
 sentence-transformers==3.0.1
 scikit-learn==1.5.1
