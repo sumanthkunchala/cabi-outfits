@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data & artifacts (kept out of git)
+data/
+embeddings/
+models/
+logs/
+
+# Notebooks
+*.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/

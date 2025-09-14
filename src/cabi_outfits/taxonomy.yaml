@@ -1,0 +1,113 @@
+# Canonical vocabularies and mappings for normalization
+
+version: 1
+
+categories:
+  canonical: [top, bottom, dress, outerwear, accessory]
+  subtype_to_category:
+    # tops
+    "tops & tees": top
+    "shirts & blouses": top
+    "sweaters": top
+    "knit tops": top
+    "tank": top
+    "tee": top
+    "blouse": top
+    "top": top
+    # bottoms
+    "trousers": bottom
+    "pants": bottom
+    "denim": bottom
+    "jeans": bottom
+    "skirts": bottom
+    "leggings": bottom
+    "shorts": bottom
+    # dress
+    "dress": dress
+    "dresses": dress
+    # outerwear
+    "jackets": outerwear
+    "blazer": outerwear
+    "coat": outerwear
+    "outerwear": outerwear
+    # accessories
+    "jewelry": accessory
+    "accessories": accessory
+    "belt": accessory
+    "scarf": accessory
+    "bag": accessory
+
+colors:
+  palette: [black, white, ivory, cream, gray, silver, navy, blue, teal, green, olive, yellow, tan, camel, brown, beige, orange, rust, red, burgundy, pink, blush, purple, gold]
+  synonyms:
+    # neutrals
+    charcoal: gray
+    heather: gray
+    off-white: ivory
+    ecru: cream
+    taupe: beige
+    cognac: brown
+    sand: beige
+    stone: beige
+    khaki: tan
+    # blues/greens
+    indigo: navy
+    sky: blue
+    cobalt: blue
+    forest: green
+    sage: green
+    emerald: green
+    # reds/oranges
+    wine: burgundy
+    maroon: burgundy
+    coral: orange
+    terracotta: rust
+    # metals
+    metallic: silver
+    gunmetal: gray
+    rose-gold: gold
+  # how many dominant colors to keep from image extraction
+  max_dominant: 3
+
+patterns:
+  allowed: [solid, stripe, plaid, check, houndstooth, floral, animal, polka dot, geometric, abstract, print, textured, ribbed]
+  normalize:
+    stripes: stripe
+    striped: stripe
+    checks: check
+    gingham: check
+    dots: polka dot
+    leopard: animal
+    zebra: animal
+    snakeskin: animal
+    rib: ribbed
+    jacquard: textured
+    cable: textured
+
+occasions:
+  allowed: [work, weekend, travel, dinner, casual, smart casual, formal, party]
+  synonyms:
+    office: work
+    business casual: work
+    night out: dinner
+    evening: dinner
+    everyday: casual
+    brunch: weekend
+
+silhouettes:
+  allowed: [relaxed, oversized, regular, tailored, slim, straight, wide-leg, bootcut, flare, a-line, bodycon]
+  normalize:
+    wide: wide-leg
+    straight-leg: straight
+    slim-fit: slim
+    fitted: slim
+
+rules:
+  # Outfit assembly constraints for MVP
+  required_sets:
+    - [top, bottom]         # set A
+    - [dress]               # set B (dress as standalone base)
+  optional:
+    - outerwear
+    - accessory
+  max_accessories: 2

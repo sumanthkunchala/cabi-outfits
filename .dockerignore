@@ -1,0 +1,21 @@
+# Python/OS noise
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+Thumbs.db
+*.ipynb_checkpoints/
+
+# Git/IDE
+.git/
+.vscode/
+.idea/
+
+# Local logs and events
+logs/
+data/events/
+
+# If you decide NOT to bake images into the container, uncomment the next line:
+# data/images/
