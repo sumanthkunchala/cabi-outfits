@@ -1,11 +1,17 @@
+﻿# Railway Nixpacks plan (no Docker)
 [phases.setup]
-aptPkgs = ["libgl1","libglib2.0-0","libjpeg-turbo8","libpng16-16","libgomp1","build-essential","ca-certificates"]
+# Install Python + pip via Nix (fixes "No module named pip")
+nixPkgs = ["python311","python311Packages.pip","python311Packages.setuptools","python311Packages.wheel"]
+# Minimal system libs needed by torch/faiss/pillow on CPU
+aptPkgs = ["libgl1","libglib2.0-0","libgomp1","build-essential","ca-certificates"]
 
 [phases.install]
+# Use python3/pip3 explicitly (works with Nix Python)
 cmds = [
-  "python -m pip install -U pip",
-  "pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio",
-  "pip install -r requirements.txt"
+  "python3 -m pip install -U pip wheel setuptools",
+  "pip3 install --index-url https://download.pytorch.org/whl/cpu torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2",
+  "pip3 install --no-cache-dir faiss-cpu==1.7.4 pyarrow==16.1.0",
+  "pip3 install --no-cache-dir -r requirements.txt"
 ]
 
 [start]
